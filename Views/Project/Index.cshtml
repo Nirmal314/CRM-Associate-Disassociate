@@ -1,0 +1,53 @@
+﻿@model List<ExampleProject.new_Project>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<h1>Projects</h1>
+
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="taskModalLabel">Tasks</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="tasks" class="modal-body">
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>FYID</th>
+            <th>PINcode</th>
+            <th>Related Tasks</th>
+            <th>Associate tasks</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.new_Projectname</td>
+                <td>@project.new_Description</td>
+                <td>@project.new_priority</td>
+                <td>@project.new_FYID</td>
+                <td>@project.new_PINcode</td>
+                <td>
+                    <button class="btn btn-primary" onclick="getTasks('@project.new_ProjectId')">View</button>
+                </td>
+                <td>
+                    <button class="btn btn-secondary" onclick="getTaskList('@project.new_ProjectId')">View</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

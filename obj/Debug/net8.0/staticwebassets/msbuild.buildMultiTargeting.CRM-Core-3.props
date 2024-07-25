@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CRM-Core-3.props" />
+</Project>

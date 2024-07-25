@@ -1,0 +1,29 @@
+﻿@model List<ExampleProject.cr267_Projecttask>
+
+@{
+    ViewData["Title"] = $"Tasks for {Model[0].cr267_ProjecttaskId}";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Probability Of Win</th>
+            <th>Is Email Sent</th>
+            <th>Disassociate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.cr267_Taskname</td>
+                <td>@task.cr267_Description</td>
+                <td>@task.cr267_Probabilityofwin</td>
+                <td>@task.cr267_Isemailsent</td>
+                <td><button class="btn btn-danger" onclick="disassociate('@task.cr267_ProjecttaskId', '@task.cr267_ProjectV2.Id')">Disassociate</button></td>
+            </tr>
+        }
+    </tbody>
+</table>    
